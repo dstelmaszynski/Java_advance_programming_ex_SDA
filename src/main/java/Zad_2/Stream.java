@@ -20,11 +20,12 @@ public class Stream {
         System.out.println("Lista - odwrotne sortowanie: " + sortedList(list));
 
     }
-    private static List<String> sortedList (List<String>list){
+
+    private static List<String> sortedList(List<String> list) {
         return list
                 .stream()
-                .map(s -> s.toLowerCase())
-                .sorted(Comparator.reverseOrder())
+                .sorted(String.CASE_INSENSITIVE_ORDER.reversed())
                 .collect(Collectors.toList());
     }
 }
+
