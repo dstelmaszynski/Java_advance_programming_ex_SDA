@@ -17,15 +17,13 @@ public class Stream {
         list.add("cel");
 
         System.out.println("Lista - wersja oryginalna: " + list);
-
-//        Collections.sort(sortedList(list), String.CASE_INSENSITIVE_ORDER); //noc nie daje wielka litera leci na koniec
         System.out.println("Lista - odwrotne sortowanie: " + sortedList(list));
 
     }
     private static List<String> sortedList (List<String>list){
         return list
                 .stream()
-                .map(s -> s.toLowerCase())  //nic nie daje, wielka litera leci na koniec
+                .map(s -> s.toLowerCase())
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.toList());
     }
