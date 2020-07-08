@@ -27,9 +27,17 @@ public class Main {
     //metoda - zawsze nazywana czasownikami
     public static void printMap(Map<String, Number> map) {
 
+        int iterator = 1; //iterator do postawienia kropki na koncu
+
         //iterowanie po mapie
         for (Map.Entry entry : map.entrySet()) {
-            System.out.println("Klucz: " + entry.getKey() + " ||" + " Wartosc: " + entry.getValue());
+            System.out.print("Klucz: " + entry.getKey() + " ||" + " Wartosc: " + entry.getValue());
+            if (iterator == map.size()) {
+                System.out.println(".");
+            } else {
+                System.out.println(",");
+            }
+            iterator++;
         }
     }
 }
