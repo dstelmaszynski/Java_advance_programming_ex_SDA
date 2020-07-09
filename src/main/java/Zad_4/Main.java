@@ -16,6 +16,9 @@ public class Main {
 
         storage.addToStorage("HTML", "four");
         storage.printValues("HTML");
+        storage.addToStorage("Java", "three");
+
+        storage.findValues("three");
 
     }
 }

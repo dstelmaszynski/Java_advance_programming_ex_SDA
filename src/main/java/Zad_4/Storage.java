@@ -9,7 +9,10 @@ package Zad_4;
 //        → wyświetlanie wszystkich kluczy, które mają podaną wartość
 //        Klasa Storage powinna pozwalać na przechowywanie wielu wartości pod jednym kluczem.
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Storage {
 
@@ -33,8 +36,15 @@ public class Storage {
             String value = map.get(key);
             System.out.println(value);
         }
-
-//        public void findValues (String value){
-//        }
+    }
+    public void findValues(String value) {
+        if (!map.containsValue(value)) { //negacja dla kluczy, ktorych nie ma w mapie
+            System.out.println("This value doesn't exist: " + value);
+            return;  //zeby nie wyswielac nulla (2 opcja - bez else)
+        }
+        map.entrySet()
+                .stream()
+                .filter(entry -> value.equals(entry.getValue()))
+                .forEach(entry -> System.out.println(entry));
     }
 }
